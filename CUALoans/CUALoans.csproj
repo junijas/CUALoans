@@ -1,0 +1,521 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{64FF1DFB-A3CB-47A7-91D1-C8706B2F45F6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CUALoans</RootNamespace>
+    <AssemblyName>CUALoans</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>cua %281%29.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>CUALoans.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp">
+      <HintPath>..\..\Alams\packages\FontAwesome.Sharp.5.12.1\lib\net45\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\AppController.cs" />
+    <Compile Include="Controller\Hash.cs" />
+    <Compile Include="Controller\UserController.cs" />
+    <Compile Include="Model\Contribution.cs" />
+    <Compile Include="Model\CUALoansData.cs" />
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\Loan.cs" />
+    <Compile Include="Model\Member.cs" />
+    <Compile Include="Model\Payment.cs" />
+    <Compile Include="Model\Transaction.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\Withdrawal.cs" />
+    <Compile Include="Report\ActiveMembers.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActiveMembers.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\AllLoanStatement.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AllLoanStatement.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\AllStatementReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AllStatementReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\AllTransactions.cs">
+      <DependentUpon>AllTransactions.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\AllWithdrawal.cs">
+      <DependentUpon>AllWithdrawal.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\MemberWithdrawal.cs">
+      <DependentUpon>MemberWithdrawal.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\MemberContributions.cs">
+      <DependentUpon>MemberContributions.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\AllContributions.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AllContributions.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\AllLoans.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AllLoans.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\AllMembers.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AllMembers.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\InActiveMembers.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InActiveMembers.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\MemberLoans.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MemberLoans.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\MemberPayments.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MemberPayments.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\TotalLoans.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TotalLoans.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\TotalPayments.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TotalPayments.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\TransactAll.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransactAll.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\PrintAll.cs">
+      <DependentUpon>PrintAll.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Report\AllTransactionStatement.cs">
+      <DependentUpon>AllTransactionStatement.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Report\TransactionStatement.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransactionStatement.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\AddLoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AddLoan.designer.cs">
+      <DependentUpon>AddLoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BulkDeleteWith.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BulkDeleteWith.Designer.cs">
+      <DependentUpon>BulkDeleteWith.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ContributionReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ContributionReport.Designer.cs">
+      <DependentUpon>ContributionReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BulkDeleteCont.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BulkDeleteCont.Designer.cs">
+      <DependentUpon>BulkDeleteCont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Interest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Interest.Designer.cs">
+      <DependentUpon>Interest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoanReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LoanReport.Designer.cs">
+      <DependentUpon>LoanReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AllTransactionsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AllTransactionsReport.Designer.cs">
+      <DependentUpon>AllTransactionsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MembersReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MembersReport.Designer.cs">
+      <DependentUpon>MembersReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Loans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Loans.designer.cs">
+      <DependentUpon>Loans.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Login.designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PaymentReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PaymentReport.Designer.cs">
+      <DependentUpon>PaymentReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Reports.designer.cs">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\User.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\User.designer.cs">
+      <DependentUpon>User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Setup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Setup.designer.cs">
+      <DependentUpon>Setup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Payment.designer.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Withdrawal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Withdrawal.designer.cs">
+      <DependentUpon>Withdrawal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dashboard.designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Contribution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Contribution.designer.cs">
+      <DependentUpon>Contribution.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Members.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Members.designer.cs">
+      <DependentUpon>Members.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\WithdrawalReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WithdrawalReport.Designer.cs">
+      <DependentUpon>WithdrawalReport.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Report\ActiveMembers.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ActiveMembers.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\AllLoanStatement.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AllLoanStatement.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\AllStatementReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AllStatementReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\AllTransactions.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AllTransactions.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\AllWithdrawal.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AllWithdrawal.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MemberWithdrawal.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MemberWithdrawal.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MemberContributions.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MemberContributions.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\AllContributions.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AllContributions.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\AllLoans.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AllLoans.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\AllMembers.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AllMembers.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\InActiveMembers.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InActiveMembers.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MemberLoans.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MemberLoans.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\MemberPayments.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MemberPayments.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\TotalLoans.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TotalLoans.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\TotalPayments.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TotalPayments.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\TransactAll.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TransactAll.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\PrintAll.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PrintAll.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\AllTransactionStatement.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AllTransactionStatement.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\TransactionStatement.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TransactionStatement.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AddLoan.resx">
+      <DependentUpon>AddLoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BulkDeleteWith.resx">
+      <DependentUpon>BulkDeleteWith.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ContributionReport.resx">
+      <DependentUpon>ContributionReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BulkDeleteCont.resx">
+      <DependentUpon>BulkDeleteCont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Interest.resx">
+      <DependentUpon>Interest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LoanReport.resx">
+      <DependentUpon>LoanReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AllTransactionsReport.resx">
+      <DependentUpon>AllTransactionsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MembersReport.resx">
+      <DependentUpon>MembersReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Loans.resx">
+      <DependentUpon>Loans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PaymentReport.resx">
+      <DependentUpon>PaymentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Reports.resx">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\User.resx">
+      <DependentUpon>User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Setup.resx">
+      <DependentUpon>Setup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Payment.resx">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Withdrawal.resx">
+      <DependentUpon>Withdrawal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="View\Contribution.resx">
+      <DependentUpon>Contribution.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Members.resx">
+      <DependentUpon>Members.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\WithdrawalReport.resx">
+      <DependentUpon>WithdrawalReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cua-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Jasbasoft-Logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cua %281%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
