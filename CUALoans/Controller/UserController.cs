@@ -99,7 +99,7 @@ namespace CUALoans.Controller
             {
                 var userData = Db.Users;
                 // find username
-                var query = userData.SingleOrDefault(user => user.username.Equals(username));
+                var query = userData.SingleOrDefault(user => user.username.Equals(username) && user.status == "Active");
 
                 if (query != null)
                 {

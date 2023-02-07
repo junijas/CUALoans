@@ -1,4 +1,5 @@
-﻿using CUALoans.Report;
+﻿using CUALoans.Controller;
+using CUALoans.Report;
 using FontAwesome.Sharp;
 using System;
 using System.Diagnostics;
@@ -163,13 +164,13 @@ namespace CUALoans.View
         }
         private void LbWelcome_Click(object sender, EventArgs e)
         {
-           // lbLogout.Visible = lbLogout.Visible == false;
+           lbLogout.Visible = lbLogout.Visible == false;
         }
 
         private void LbLogout_Click(object sender, EventArgs e)
         {
             lbLogout.Visible = false;
-            //UserController.Logout(this);
+            UserController.Logout(this);
         }
 
         private void PbJLogo_Click(object sender, EventArgs e)

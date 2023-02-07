@@ -157,7 +157,7 @@ namespace CUALoans.Controller
         {
             try
             {
-                return data.Members.Where(a => a.Status.Equals("Active")).ToList();
+                return data.Members.Where(a => a.Status.Equals("Active")).OrderByDescending(x=>x.CreatedAt).ToList();
             }
             catch (Exception)
             {

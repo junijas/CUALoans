@@ -117,7 +117,7 @@ namespace CUALoans.View
 
         private void LinkToJasbasoft_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://forcefields.com");
+            Process.Start("https://jasbasoft.com");
         }
 
         private void Logon()
